@@ -24,7 +24,7 @@ class App extends Component {
               render={() => <Redirect to='/' />}
             />
             <Route
-              path='/subjects/:_id'
+              path='/subjects/:subject_id'
               component={Lessons}
             />
             <Route
