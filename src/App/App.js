@@ -28,7 +28,7 @@ class App extends Component {
               component={Lessons}
             />
             <Route
-              path='/subjects/:_id/lesson/:_id'
+              path='/subjects/:subject_id/lesson/:_id'
               component={Lesson}
             />
           </Switch>
