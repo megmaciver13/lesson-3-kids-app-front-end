@@ -5,7 +5,10 @@ class Question extends Component {
     super(props)
     this.state = {
       question: '',
-      answers: []
+      answers: [],
+      hasClickedImage: false,
+      answerChoice: {},
+      answeredCorrectly: false
     }
   }
 
@@ -21,19 +24,51 @@ class Question extends Component {
       .catch(err => console.log(err))
   }
 
+  showCorrectMessage() {
+    
+  }
+
+  showWrongMessage() {
+
+  }
+
+  checkIfCorrect() {
+    if (this.state.answerChoice.isCorrect) {
+      this.setState({
+        answeredCorrectly: true
+      })
+      showCorrectMessage()
+    } else {
+      showWrongMessage()
+    }
+  }
+
+  onClickImage(e) {
+    e.preventDefault()
+    console.log(e.target)
+    this.setState({
+      hasClickedImage: true,
+      answerChoice: e.target
+    })
+
+    checkIfCorrect()
+  }
+
+
+
   render () {
     return(
       <div>
         <h2>{this.state.question}</h2>
-          <div>
+          <div onClick={e => this.onClickImage(e)}>
             <img src={(this.state.answers)[0][image]} alt={(this.state.answers)[0][text]} />
           </div>
-          <div>
+          <div onClick={e => this.onClickImage(e)}>
             <img src={(this.state.answers)[1][image]} alt={(this.state.answers)[1][text]} />
           </div>
-          <div>
+          <div onClick={e => this.onClickImage(e)}>
             <img src={(this.state.answers)[2][image]} alt={(this.state.answers)[2][text]} />
-          </div>  
+          </div>
       </div>
     )
   }
