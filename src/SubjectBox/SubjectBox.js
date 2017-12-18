@@ -13,7 +13,7 @@ class subject extends Component {
     super(props)
     this.state = {
       name: this.props.subject.name,
-      subjectImage: this.props.subject.imgUrl,
+      subjectImage: this.props.subject.subjectImage,
       id: this.props.subject._id
     }
   }
@@ -21,8 +21,8 @@ class subject extends Component {
     let {name, subjectImage, lessons} = this.state
     return(
       <div name="subject-container">
-        <Link to={`/subjects/${id}`}>
-          <img src={imgUrl} alt={name}/>
+        <Link to={`/subjects/${this.state.id}`}>
+          <img src={subjectImage} alt={name}/>
           <h2 subName="subject-name">{name}</h2>
         </Link>
       </div>

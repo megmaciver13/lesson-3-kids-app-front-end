@@ -19,16 +19,13 @@ class Home extends Component {
    }
 
   render () {
-    let showSubjects =
-    if (this.state.subjectBoxs) {
-    subjectBoxs = this.state.subjectBoxs.map((SubjectBox, i) => {
-      return <Link {SubjectBox} />
+    let subjectBoxes = this.state.subjects.map((subject, i) => {
+      return <SubjectBox info={subject} key={i} />
     })
-  }
     return (
       <div>
-        <div className={"SubjectBox"}>
-          {showSubjects}
+        <div className="subjects">
+          {subjectBoxes}
         </div>
       </div>
     )
