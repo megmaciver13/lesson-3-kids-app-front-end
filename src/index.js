@@ -1,15 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Redirect,
-  Switch
+  BrowserRouter as Router
 } from 'react-router-dom'
+import registerServiceWorker from './registerServiceWorker'
+
 import './index.css'
 import App from './App/App'
-import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
   <Router>

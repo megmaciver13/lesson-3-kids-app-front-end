@@ -1,14 +1,8 @@
-import React, {Component} from 'react'
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom'
-import './Lessons.css'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import './LessonBox.css'
 
-class Lessons extends Component {
+class LessonBox extends Component {
   constructor (props) {
     super(props)
 
@@ -20,9 +14,11 @@ class Lessons extends Component {
   render () {
     return (
       <div className="lesson-box">
-        <img className='lesson-icon' src={lesson.lessonImage} alt={lesson.name}/>
-        <Link to=`{/subjects/${this.props.match.params.subject_id}/lesson/${lesson._id}}`>{lesson.name}</Link>
+        <img className='lesson-icon' src={this.state.lesson.lessonImage} alt={this.state.lesson.name}/>
+        <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}`}>{this.state.lesson.name}</Link>
       </div>
     )
   }
 }
+
+export default LessonBox

@@ -1,11 +1,4 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom'
 
 import './Lesson.css'
 

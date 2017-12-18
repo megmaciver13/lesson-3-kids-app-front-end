@@ -17,12 +17,12 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         <main>
           <Switch>
             <Route
               path='/'
-              component={Home}
+              render={props => <Home {...props} />}
             />
             <Route
               path='/subjects'
@@ -30,11 +30,11 @@ class App extends Component {
             />
             <Route
               path='/subjects/:subject_id'
-              component={Lessons}
+              render={props => <Lessons {...props} />}
             />
             <Route
               path='/subjects/:subject_id/lesson/:_id'
-              component={Lesson}
+              render={props => <Lesson {...props} />}
             />
           </Switch>
         </main>
