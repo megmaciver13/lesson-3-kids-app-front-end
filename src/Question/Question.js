@@ -25,11 +25,11 @@ class Question extends Component {
   }
 
   showCorrectMessage() {
-    
+    console.log('correct')
   }
 
   showWrongMessage() {
-
+    console.log('wrong')
   }
 
   checkIfCorrect() {
