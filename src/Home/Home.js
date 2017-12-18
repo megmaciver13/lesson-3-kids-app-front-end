@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import SubjectBox from '../SubjectBox/SubjectBox'
+
+import './Home.css'
 import {
   BrowserRouter as Router,
   Link,
@@ -10,12 +13,20 @@ import {
 class Home extends Component {
   constructor(props) {
     super(props)
-  }
+    this.state = {
+       subjects: []
+     }
+   }
 
   render () {
+    let subjectBoxes = this.state.subjects.map((subject, i) => {
+      return <SubjectBox info={subject} key={i} />
+    })
     return (
       <div>
-        <p>Hello World</p>
+        <div className="subjects">
+          {subjectBoxes}
+        </div>
       </div>
     )
   }
