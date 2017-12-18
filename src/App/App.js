@@ -8,6 +8,11 @@ import {
 } from 'react-router-dom'
 import './App.css'
 
+import Home from '../Home/Home'
+import Lesson from '../Lesson/Lesson'
+import Lessons from '../Lessons/Lessons'
+import Nav from '../Nav/Nav'
+
 class App extends Component {
   render () {
     return (
