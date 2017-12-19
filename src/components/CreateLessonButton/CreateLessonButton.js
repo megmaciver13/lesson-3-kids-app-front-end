@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreateLessonButton from './createLessonButton';
+import CreateLessonButton from './CreateLessonButton';
 
 class CreateLesson extends Component {
   render() {
