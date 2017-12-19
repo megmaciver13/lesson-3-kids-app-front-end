@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './SubjectBox.css'
 
-class subject extends Component {
+class SubjectBox extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ class subject extends Component {
   render () {
     return (
       <div className="subject-container">
-        <Link to={`/subjects/${this.state._id}`}>
+        <Link to={`/subjects/${this.state.id}`}>
           <img src={this.state.subjectImage} alt={this.state.name} />
           <h2 className="subject-name">{this.state.name}</h2>
         </Link>
@@ -25,4 +25,4 @@ class subject extends Component {
   }
 }
 
-export default subject
+export default SubjectBox
