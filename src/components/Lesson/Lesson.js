@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './Lesson.css'
 
 class Lesson extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
