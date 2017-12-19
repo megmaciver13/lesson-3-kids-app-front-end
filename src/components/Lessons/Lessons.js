@@ -28,9 +28,7 @@ class Lessons extends Component {
   render () {
     let showLessons = this.state.lessons.map((lesson, index) => {
       return (
-        <div className='lesson-of-subject'>
-          <LessonBox info={lesson} subject={this.state.subject} key={index} />
-        </div>
+        <LessonBox info={lesson} subject={this.state.subject} key={index} />
       )
     })
     return (

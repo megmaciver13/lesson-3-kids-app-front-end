@@ -22,12 +22,6 @@ class SubjectBox extends Component {
           <img src={this.state.subjectImage} alt={this.state.name} />
           <h2 className="subject-name">{this.state.name}</h2>
         </Link>
-        {/* <main>
-          <Route
-            path='/subjects/:subject_id'
-            render={props => <Lessons {...props} />}
-          />
-        </main> */}
       </div>
     )
   }

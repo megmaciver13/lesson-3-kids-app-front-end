@@ -21,7 +21,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route
-              path='/'
+              exact path='/'
               render={props => <Home {...props} />}
             />
             <Route
@@ -29,18 +29,16 @@ class App extends Component {
               component={About}
             />
             <Route
-              path='/subjects'
-              render={() => <Redirect to='/' />}
-            />
-
-            {/* <Route
               path='/subjects/:subject_id'
               render={props => <Lessons {...props} />}
-            /> */}
-
+            />
             <Route
               path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
+            />
+            <Route
+              path='/*'
+              render={() => <Redirect to='/' />}
             />
           </Switch>
         </main>
