@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Question extends Component {
+class QuestionBox extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -11,26 +11,26 @@ class Question extends Component {
     }
   }
 
-  showCorrectMessage() {
+  showCorrectMessage () {
     console.log('correct')
   }
 
-  showWrongMessage() {
+  showWrongMessage () {
     console.log('wrong')
   }
 
-  checkIfCorrect() {
+  checkIfCorrect () {
     if (this.state.answerChoice.isCorrect) {
       this.setState({
         answeredCorrectly: true
       })
-      showCorrectMessage()
+      this.showCorrectMessage()
     } else {
-      showWrongMessage()
+      this.showWrongMessage()
     }
   }
 
-  onClickImage(e) {
+  onClickImage (e) {
     e.preventDefault()
     console.log(e.target)
     this.setState({
@@ -38,7 +38,7 @@ class Question extends Component {
       answerChoice: e.target
     })
 
-    checkIfCorrect()
+    this.checkIfCorrect()
   }
 
 
@@ -62,4 +62,4 @@ class Question extends Component {
   }
 }
 
-export default Question
+export default QuestionBox

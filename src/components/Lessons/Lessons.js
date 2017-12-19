@@ -29,7 +29,7 @@ class Lessons extends Component {
     let showLessons = this.state.lessons.map((lesson, index) => {
       return (
         <div className='lesson-of-subject'>
-          <LessonBox info={lesson} key={index} />
+          <LessonBox info={lesson} subject={this.state.subject} key={index} />
         </div>
       )
     })

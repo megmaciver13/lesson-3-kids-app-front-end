@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 import './Nav.css'
 
 class Nav extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     return (
       <div>

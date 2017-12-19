@@ -7,7 +7,8 @@ class LessonBox extends Component {
     super(props)
 
     this.state = {
-      lesson: this.props.info
+      lesson: this.props.info,
+      subject: this.props.subject
     }
   }
 
@@ -15,7 +16,7 @@ class LessonBox extends Component {
     return (
       <div className="lesson-box">
         <img className='lesson-icon' src={this.state.lesson.lessonImage} alt={this.state.lesson.name}/>
-        <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}`}>{this.state.lesson.name}</Link>
+        <Link to={`/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`}>{this.state.lesson.name}</Link>
       </div>
     )
   }
