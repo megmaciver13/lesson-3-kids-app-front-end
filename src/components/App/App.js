@@ -17,23 +17,27 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        {/* <Nav /> */}
+        <Nav />
         <main>
           <Switch>
             <Route
               path='/'
               render={props => <Home {...props} />}
             />
+            {/* <Route
+              path='/about'
+              component={About}
+            /> */}
             <Route
               path='/subjects'
               render={() => <Redirect to='/' />}
             />
             <Route
-              path='/subjects/:subject_id'
+              exact path='/subjects/:subject_id'
               render={props => <Lessons {...props} />}
             />
             <Route
-              path='/subjects/:subject_id/lesson/:_id'
+              exact path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
             />
           </Switch>

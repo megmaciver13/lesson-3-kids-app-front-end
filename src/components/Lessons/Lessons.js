@@ -4,7 +4,6 @@ import axios from 'axios'
 import './Lessons.css'
 import LessonBox from '../LessonBox/LessonBox'
 
-
 class Lessons extends Component {
   constructor (props) {
     super(props)
