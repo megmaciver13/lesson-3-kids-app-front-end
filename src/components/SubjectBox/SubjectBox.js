@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 import './SubjectBox.css'
+import Lessons from '../Lessons/Lessons'
 
 class SubjectBox extends Component {
   constructor (props) {
@@ -21,6 +22,12 @@ class SubjectBox extends Component {
           <img src={this.state.subjectImage} alt={this.state.name} />
           <h2 className="subject-name">{this.state.name}</h2>
         </Link>
+        <main>
+          <Route
+            path='/subjects/:subject_id'
+            render={props => <Lessons {...props} />}
+          />
+        </main>
       </div>
     )
   }

@@ -32,12 +32,14 @@ class App extends Component {
               path='/subjects'
               render={() => <Redirect to='/' />}
             />
+            {/*
             <Route
-              exact path='/subjects/:subject_id'
+              path='/subjects/:subject_id'
               render={props => <Lessons {...props} />}
             />
+            */}
             <Route
-              exact path='/subjects/:subject_id/lesson/:_id'
+              path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
             />
           </Switch>
