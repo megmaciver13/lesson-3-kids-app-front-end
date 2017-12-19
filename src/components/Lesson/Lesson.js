@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
+import QuestionBox from '../QuestionBox/QuestionBox'
 import './Lesson.css'
 
 class Lesson extends Component {
@@ -11,7 +13,7 @@ class Lesson extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson =>
@@ -23,8 +25,8 @@ class Lesson extends Component {
   }
 
   render () {
-    let questions = this.state.lesson.questions.map((question, i) +. {
-      return <Question info={question} key={i} />
+    let questions = this.state.lesson.questions.map((question, i) => {
+      return <QuestionBox info={question} key={i} />
     })
     return (
       <div className="questions">
