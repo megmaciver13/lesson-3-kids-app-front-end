@@ -18,7 +18,7 @@ class SubjectBox extends Component {
     return (
       <div className="subject-container">
         <Link to={`/subjects/${this.state.id}`}>
-          <img src={`../../public/images/${this.state.subjectImage}`} alt={this.state.name} />
+          <img src={this.state.subjectImage} alt={this.state.name} />
           <h2 className="subject-name">{this.state.name}</h2>
         </Link>
       </div>
