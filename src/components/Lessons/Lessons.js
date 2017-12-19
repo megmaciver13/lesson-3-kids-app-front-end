@@ -32,8 +32,12 @@ class Lessons extends Component {
       )
     })
     return (
-      <div className='lessons'>
-        {showLessons}
+      <div className="lessons-page">
+        <h1>{this.state.subject.name}</h1>
+        <h2>Choose a lesson below to get started!</h2>
+        <div className="lessons">
+          {showLessons}
+        </div>
       </div>
     )
   }

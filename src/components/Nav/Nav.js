@@ -7,7 +7,12 @@ class Nav extends Component {
     return (
       <div>
         <nav>
-          <Link to='/'>Home</Link> | <Link to='/about'>About</Link>
+          <div className="home">
+            <Link to='/'>Home</Link>
+          </div>
+          <div className="about">
+            <Link to='/about'>About</Link>
+          </div>
         </nav>
       </div>
     )

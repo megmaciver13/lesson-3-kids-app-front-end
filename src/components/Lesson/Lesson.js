@@ -29,9 +29,12 @@ class Lesson extends Component {
       return <QuestionBox info={question} key={i} />
     })
     return (
-      <div className="questions">
-        {questions}
-        <p>Hello World</p>
+      <div className="lesson-page">
+        <h1>Lesson: {this.state.lesson.name}</h1>
+        <div className="questions">
+          {questions}
+          <p>Hello World</p>
+        </div>
       </div>
     )
   }

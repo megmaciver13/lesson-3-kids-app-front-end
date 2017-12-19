@@ -16,7 +16,7 @@ import About from '../About/About'
 class App extends Component {
   render () {
     return (
-      <div className="App">
+      <div className="app">
         <Nav />
         <main>
           <Switch>
