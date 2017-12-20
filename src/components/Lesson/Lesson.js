@@ -76,6 +76,15 @@ class Lesson extends Component {
     .catch(err => console.log(err))
 }
 
+onDelete(e) {
+  axios
+    .delete(`http://localhost:3001/`)
+    .then(response => {
+      this.props.history.push('/subjects')
+    })
+    .catch(err => console.log(err))
+}
+
   render () {
       let questions = this.state.lesson.questions.map((question, index) => {
         return <QuestionBox info={question} key={index} />
@@ -94,6 +103,7 @@ class Lesson extends Component {
             <p />
           )}
           <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
+          <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
         </div>
       )
     }
