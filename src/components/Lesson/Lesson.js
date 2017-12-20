@@ -71,14 +71,14 @@ class Lesson extends Component {
     )
     .then(response => {
       console.log(response)
-      this.props.history.push('/subjects/:subject_id')
+      this.props.history.push(`/subjects/${this.props.match.params.subject_id}`)
     })
     .catch(err => console.log(err))
 }
 
 onDelete(e) {
   axios
-    .delete(`http://localhost:3001/`)
+    .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
     .then(response => {
       this.props.history.push('/subjects')
     })

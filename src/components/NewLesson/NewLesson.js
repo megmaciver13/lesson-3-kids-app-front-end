@@ -27,14 +27,17 @@ class NewLesson extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+
+    let newLesson = {
+      name: this.state.name,
+      lessonImage: this.state.lessonImage
+    }
+
     axios
-      .post('http://localhost:3001/subjects/:id', {
-        name: this.state.name,
-        lessonImage: this.state.lessonImage
-      })
+      .post(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson`, newLesson)
       .then((response) => {
         console.log(response)
-        this.props.history.push('/subjects/:subject_id')
+        this.props.history.push(`/subjects/${this.props.match.params.subject_id}`)
       })
       .catch(err => console.log(err))
   }

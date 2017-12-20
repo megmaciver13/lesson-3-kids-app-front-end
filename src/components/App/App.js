@@ -13,7 +13,6 @@ import Lessons from '../Lessons/Lessons'
 import Nav from '../Nav/Nav'
 import About from '../About/About'
 import NewLesson from '../NewLesson/NewLesson'
-import CreateLessonButton from '../CreateLessonButton/CreateLessonButton'
 
 
 class App extends Component {
@@ -41,7 +40,7 @@ class App extends Component {
             />
 
             <Route
-              path='/subjects/:subject_id/new-lesson'
+              path='/subjects/:subject_id/lesson'
               render={props => <NewLesson {...props} />}
             />
             <Route
