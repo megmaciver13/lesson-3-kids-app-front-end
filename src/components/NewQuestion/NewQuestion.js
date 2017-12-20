@@ -7,6 +7,7 @@ class NewQuestion extends Component {
     super(props)
 
     this.state = {
+      question: '',
       answers: [{
         image: '',
         text: '',
@@ -16,42 +17,66 @@ class NewQuestion extends Component {
     }
   }
 
+  handleQuestionTitle(e) {
+    this.setState({
+      question: e.target.value
+    })
+  }
+
+  addAnswer(e) {
+    e.preventDefault()
+    this.setState({
+      numAnswers: this.state.numAnswers ++
+    })
+  }
+
   render() {
     return(
       <div>
         <h1>Create a New Question</h1>
         <form onSubmit={e => this.handleSubmit(e)}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Lesson Name"
-            onChange={this.handleName}
-          />
-          <input
-            type="text"
-            name="lessonImage"
-            placeholder="Icon URL"
-            onChange={this.handleLessonImage}
-          />
-          <input type="submit" value="Submit" />
-          <input type="submit" value="Add Answer"/>
+          <input type="text" name="question" placeholder="Type Question Here" onChange={this.handleQuestionTitle} />
+
+          <input type="text" name="answers[0][image]" placeholder="Answer Choice 1: Image Url" onChange={this.updateAnswersArray} />
+          <input type="text" name="answers[0][text]" placeholder="Answer Choice 1: Text" onChange={this.updateAnswersArray} />
+          <input type="checkbox" name="answers[0][isCorrect]" value="true"/> <span>Is this the correct answer?</span><br />
+
+          <input type="text" name="answers[1][image]" placeholder="Answer Choice 1: Image Url" onChange={this.updateAnswersArray} />
+          <input type="text" name="answers[1][text]" placeholder="Answer Choice 1: Text" onChange={this.updateAnswersArray} />
+          <input type="checkbox" name="answers[1][isCorrect]" value="true"/> <span>Is this the correct answer?</span><br />
+
+          <input type="text" name="answers[2][image]" placeholder="Answer Choice 1: Image Url" onChange={this.updateAnswersArray} />
+          <input type="text" name="answers[2][text]" placeholder="Answer Choice 1: Text" onChange={this.updateAnswersArray} />
+          <input type="checkbox" name="answers[2][isCorrect]" value="true"/> <span>Is this the correct answer?</span><br />
+
+          <input type="submit" value="Submit Question" />
         </form>
       </div>
     )
   }
 }
 
-class CreateQuestion extends Component {
-  constructor(props) {
-    super(props)
+// earlier attempt:
 
-    this.state = {
-      answers: [{
-        image, text, isCorrect
-      }],
-      numAnswers: 4
-    }
-  }
+<form onSubmit={e => this.handleSubmit(e)}>
+  <input
+    type="text"
+    name="question"
+    placeholder="Type Question Here"
+    onChange={this.handleQuestionTitle}
+  />
+  {Array(this.state.numAnswers).map((i, index) => {
+    <input type="text" name="image" placeholder="Image Url" onChange={this.updateAnswersArray} />
+    <input type="text" name=answers[index][text] placeholder="Answer Text" onChange={this.updateAnswersArray} />
+    <input type="" name="isCorrect"/>
+
+  })}
+  <input type="submit" value="Submit Question" />
+  <input type="submit" value="Add Answer" onSubmit={this.addAnswer}/>
+</form>
+
+// Zakk's work:
+
   render() {
     return (
       div

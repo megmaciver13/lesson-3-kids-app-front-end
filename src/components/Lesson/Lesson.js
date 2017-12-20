@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {
+  Link
+} from 'react-router-dom'
 
 import QuestionBox from '../QuestionBox/QuestionBox'
 import './Lesson.css'
@@ -102,6 +105,10 @@ onDelete(e) {
           ) : (
             <p />
           )}
+          <button>
+            <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/questions`}>Create a New Question</Link>
+          </button>
+          <br />
           <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
           <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
         </div>
