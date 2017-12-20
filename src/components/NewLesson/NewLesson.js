@@ -47,6 +47,7 @@ class NewLesson extends Component {
   render() {
     return (
       <div>
+        <h1>Create a New Lesson!</h1>
         <form onSubmit={e => this.handleSubmit(e)}>
           <input
             type="text"
@@ -56,10 +57,10 @@ class NewLesson extends Component {
           <input
             type="text"
             placeholder="Icon URL"
-            onChange{this.handleLessonImage}
+            onChange{...this.handleLessonImage}
           />
           <input type="submit" value="submit" />
-        </form>    
+        </form>
       </div>
     )
   }
