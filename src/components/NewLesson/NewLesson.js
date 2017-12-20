@@ -51,11 +51,13 @@ class NewLesson extends Component {
         <form onSubmit={e => this.handleSubmit(e)}>
           <input
             type="text"
+            name="name"
             placeholder="Lesson Name"
             onChange={this.handleName}
           />
           <input
             type="text"
+            name="lessonImage"
             placeholder="Icon URL"
             onChange{...this.handleLessonImage}
           />
