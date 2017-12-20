@@ -29,8 +29,11 @@ class Home extends Component {
       return <SubjectBox info={subject} key={i} />
     })
     return (
-      <div className="subjects">
-        {subjectBoxes}
+      <div className="home">
+        <h1>Choose a subject below to get learning!</h1>
+        <div className="subjects">
+          {subjectBoxes}
+        </div>
       </div>
     )
   }

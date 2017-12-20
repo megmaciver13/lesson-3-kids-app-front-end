@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 import './SubjectBox.css'
+import Lessons from '../Lessons/Lessons'
 
 class SubjectBox extends Component {
   constructor (props) {

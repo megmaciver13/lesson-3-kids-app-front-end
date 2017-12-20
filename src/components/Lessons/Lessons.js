@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import './Lessons.css'
 import LessonBox from '../LessonBox/LessonBox'
+import CreateLessonButton from '../CreateLessonButton/CreateLessonButton'
 
 class Lessons extends Component {
   constructor (props) {
@@ -28,14 +29,17 @@ class Lessons extends Component {
   render () {
     let showLessons = this.state.lessons.map((lesson, index) => {
       return (
-        <div className='lesson-of-subject'>
-          <LessonBox info={lesson} key={index} />
-        </div>
+        <LessonBox info={lesson} subject={this.state.subject} key={index} />
       )
     })
     return (
-      <div className='lessons'>
-        {showLessons}
+      <div className="lessons-page">
+        <h1>{this.state.subject.name}</h1>
+        <h2>Choose a lesson below to get started!</h2>
+        <div className="lessons">
+          {showLessons}
+        </div>
+        <CreateLessonButton />
       </div>
     )
   }

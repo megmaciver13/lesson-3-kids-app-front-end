@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
-import CreateLessonButton from './createLessonButton';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-class CreateLesson extends Component {
-  render() {
-    return <Button color="blue" />;
-  }
+const CreateLessonButton = ({}) => {
+  return(
+    <div>
+      <br></br>
+      <button>
+        <Link to="/subjects/:subject_id/new-subject">Create a New Lesson!</Link>
+      </button>
+    </div>
+  )
 }
 
-export default CreateLesson;
+export default CreateLessonButton
