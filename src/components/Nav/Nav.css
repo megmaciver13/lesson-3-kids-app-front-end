@@ -2,7 +2,9 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 10px;
+  padding: 10px;
+  background-color: red;
+  color: white;
 }
 
 .home {

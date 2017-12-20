@@ -5,6 +5,7 @@ import { Link, Redirect } from "react-router-dom"
 class NewLesson extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       name: null,
       lessonImage: null
@@ -59,7 +60,7 @@ class NewLesson extends Component {
             placeholder="Icon URL"
             onChange={this.handleLessonImage}
           />
-          <input type="submit" value="submit" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
