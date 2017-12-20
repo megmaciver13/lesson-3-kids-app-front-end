@@ -9,6 +9,7 @@ class Lesson extends Component {
     super(props)
 
     this.state = {
+      questions: [],
       lesson: {}
     }
   }
@@ -16,29 +17,28 @@ class Lesson extends Component {
   componentDidMount () {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
-      .then(response => {
-        console.log(response)
+      .then(lesson => {
         this.setState({
-          lesson: response.data
+          lesson: lesson.data,
+          questions: lesson.data.questions
         })
       })
       .catch(err => console.log(err))
   }
 
   render () {
-    // let questions = this.state.lesson.questions.map((question, i) => {
-    //   return <QuestionBox info={question} key={i} />
-    // })
-    return (
-      <div className="lesson-page">
-        {/* <h1>Lesson: {this.state.lesson.name}</h1> */}
-        <div className="questions">
-          {/* {questions} */}
-          <p>Hello World</p>
+      let questions = this.state.questions.map((question, index) => {
+        return <QuestionBox info={question} key={index} />
+      })
+      return (
+        <div className="lesson-page">
+        <h1>Lesson: {this.state.lesson.name}</h1>
+          <div className="questions">
+            {questions}
+          </div>
         </div>
-      </div>
-    )
-  }
+      )
+    }
 }
 
 export default Lesson

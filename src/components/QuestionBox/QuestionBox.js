@@ -47,7 +47,7 @@ class QuestionBox extends Component {
     console.log(this.state.question)
     return(
       <div>
-        <h2>{this.state.question}</h2>
+        <h2>{this.state.question.question}</h2>
           <div onClick={e => this.onClickImage(e)}>
             <img src={(this.state.question.answers)[0]['image']} alt={(this.state.question.answers)[0]['text']} />
           </div>
