@@ -6,7 +6,6 @@ class NewLesson extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      hasSubmitted: false,
       name: null,
       lessonImage: null
     }
@@ -28,12 +27,8 @@ class NewLesson extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state)
-    this.setState({
-      hasSubmitted: true,
-    })
     axios
-      .post('http://localhost:3001/', {
+      .post('http://localhost:3001/subjects/:id', {
         name: this.state.name,
         lessonImage: this.state.lessonImage
       })
@@ -66,8 +61,6 @@ class NewLesson extends Component {
       </div>
     )
   }
-
-
 }
 
 export default NewLesson

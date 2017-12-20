@@ -39,9 +39,9 @@ class App extends Component {
               path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
             />
-          
+
             <Route
-              path='/subjects/:subject_id/new-subject'
+              path='/subjects/:subject_id/new-lesson'
               render={props => <NewLesson {...props} />}
             />
             <Route

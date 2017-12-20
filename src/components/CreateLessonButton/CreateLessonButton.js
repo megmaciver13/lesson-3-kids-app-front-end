@@ -7,7 +7,7 @@ const CreateLessonButton = ({}) => {
     <div>
       <br></br>
       <button>
-        <Link to="/subjects/:subject_id/new-subject">Create a New Lesson!</Link>
+        <Link to="/subjects/:subject_id/new-lesson">Create a New Lesson!</Link>
       </button>
     </div>
   )
