@@ -19,7 +19,7 @@ class UpdateLesson extends Component {
             type="text"
             name="lessonImage"
             value={lesson.lessonImage}
-            onChange{...this.props.updateLesson}
+            onChange={this.props.updateLesson}
           />
           <input type="submit" value="submit" />
         </form>

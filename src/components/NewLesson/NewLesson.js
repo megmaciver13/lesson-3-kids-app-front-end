@@ -59,7 +59,7 @@ class NewLesson extends Component {
             type="text"
             name="lessonImage"
             placeholder="Icon URL"
-            onChange{...this.handleLessonImage}
+            onChange={this.handleLessonImage}
           />
           <input type="submit" value="submit" />
         </form>
