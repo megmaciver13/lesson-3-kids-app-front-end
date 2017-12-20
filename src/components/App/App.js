@@ -29,7 +29,7 @@ class App extends Component {
               component={About}
             />
             <Route
-              path='/subjects/:subject_id'
+              exact path='/subjects/:subject_id'
               render={props => <Lessons {...props} />}
             />
             <Route
