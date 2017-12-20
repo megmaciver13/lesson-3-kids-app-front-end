@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import './Lessons.css'
 import LessonBox from '../LessonBox/LessonBox'
+import CreateLessonButton from '../CreateLessonButton/CreateLessonButton'
 
 class Lessons extends Component {
   constructor (props) {
@@ -38,6 +39,7 @@ class Lessons extends Component {
         <div className="lessons">
           {showLessons}
         </div>
+        <CreateLessonButton />
       </div>
     )
   }

@@ -12,6 +12,8 @@ import Lesson from '../Lesson/Lesson'
 import Lessons from '../Lessons/Lessons'
 import Nav from '../Nav/Nav'
 import About from '../About/About'
+import NewLesson from '../NewLesson/NewLesson'
+import CreateLessonButton from '../CreateLessonButton/CreateLessonButton'
 
 
 class App extends Component {
@@ -38,6 +40,10 @@ class App extends Component {
               render={props => <Lesson {...props} />}
             />
           
+            <Route
+              path='/subjects/:subject_id/new-subject'
+              render={props => <NewLesson {...props} />}
+            />
             <Route
               path='/*'
               render={() => <Redirect to='/' />}
