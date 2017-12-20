@@ -13,6 +13,7 @@ import Lessons from '../Lessons/Lessons'
 import Nav from '../Nav/Nav'
 import About from '../About/About'
 
+
 class App extends Component {
   render () {
     return (
@@ -36,6 +37,7 @@ class App extends Component {
               path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
             />
+          
             <Route
               path='/*'
               render={() => <Redirect to='/' />}
