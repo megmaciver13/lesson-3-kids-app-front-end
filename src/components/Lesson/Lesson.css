@@ -12,3 +12,8 @@ button {
   background-color: #EE5938;
   color: white;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
