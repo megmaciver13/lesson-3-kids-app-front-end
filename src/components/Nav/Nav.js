@@ -8,7 +8,7 @@ class Nav extends Component {
       <div>
         <nav>
           <div className="home">
-            <Link to='/'>Home</Link>
+            <Link to='/'>LearnNGrow</Link>
           </div>
           <div className="about">
             <Link to='/about'>About</Link>
