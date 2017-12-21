@@ -1,6 +1,25 @@
-.lessons-page{
-  justify-content:center;
+.lessons {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
 
+h1 {
+  font-family: 'Short Stack', cursive;
+  font-size: 35px;
+}
+
+h3 {
+  font-family: 'Delius Unicase', cursive;
+}
+
+button {
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 70%;
+  border: none;
+  font-family: 'Short Stack', cursive;
+  background-color: #EE5938;
+  color: white;
 }

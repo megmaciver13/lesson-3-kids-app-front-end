@@ -12,7 +12,11 @@
 }
 
 .question-box-item {
-  border: 1px solid #000000;
+  border: 4px dotted rgba(0,0,0,.5);
   padding: 10px;
   margin: 10px;
+}
+
+.question-text {
+  font-family: 'Delius Unicase', cursive;
 }
