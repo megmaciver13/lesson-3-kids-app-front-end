@@ -2,7 +2,7 @@
 
 ## Description:
 * LearnNGrow is a visual learning app in the style of short, visual quizzes intended to help young children learn in an engaging environment.
-* Try LearnNGrow [here](http://kids-app.surge.sh/)
+* Try LearnNGrow [here](http://learn-n-grow.surge.sh/)
 
 ## User Stories
 * User should be able to see screen of subject choices
