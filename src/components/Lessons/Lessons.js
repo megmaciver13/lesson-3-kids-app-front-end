@@ -18,7 +18,7 @@ class Lessons extends Component {
   }
 
   componentDidMount () {
-    axios.get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}`)
+    axios.get(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}`)
       .then(subject => {
         this.setState({
           subject: subject.data,

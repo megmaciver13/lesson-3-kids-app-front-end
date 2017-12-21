@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount () {
-    axios.get('http://localhost:3001/subjects')
+    axios.get('https://kids-app-back-end.herokuapp.com/subjects')
       .then(subjects => {
         console.log(subjects.data)
         this.setState({

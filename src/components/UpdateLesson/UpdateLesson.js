@@ -23,7 +23,7 @@ class UpdateLesson extends Component {
     }
     e.preventDefault()
     axios
-      .put(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`, updatedLesson)
+      .put(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`, updatedLesson)
       .then(response => {
         console.log(response)
         this.props.history.push(`/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)

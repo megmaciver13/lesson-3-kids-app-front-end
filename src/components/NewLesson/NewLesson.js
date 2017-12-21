@@ -33,7 +33,7 @@ class NewLesson extends Component {
       lessonImage: this.state.lessonImage
     }
     axios
-      .post(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson`, newLesson)
+      .post(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}/lesson`, newLesson)
       .then((response) => {
         console.log(response)
         this.props.history.push(`/subjects/${this.props.match.params.subject_id}`)

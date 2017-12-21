@@ -39,7 +39,7 @@ class NewQuestion extends Component {
   }
 
   axios
-    .post(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`, newQuestion)
+    .post(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`, newQuestion)
     .then(response => {
       console.log(response)
       this.props.history.push(`/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)

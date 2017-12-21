@@ -25,7 +25,7 @@ class Lesson extends Component {
 
   componentDidMount () {
     axios
-      .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+      .get(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson => {
         this.setState({
           lesson: lesson.data
@@ -55,7 +55,7 @@ class Lesson extends Component {
 
   onDelete (e) {
     axios
-      .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+      .delete(`https://kids-app-back-end.herokuapp.com/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(response => {
         this.props.history.push('/subjects')
       })
