@@ -14,7 +14,6 @@ class Lesson extends Component {
     super(props)
 
     this.state = {
-      subject: this.props.location.state.subject,
       lesson: {
         name: '',
         lessonImage: '',
@@ -64,7 +63,6 @@ class Lesson extends Component {
   }
 
   render () {
-    console.log(this.state.subject)
     let questions = this.state.lesson.questions.map((question, index) => {
       return <QuestionBox info={question} key={index} />
     })
@@ -89,12 +87,6 @@ class Lesson extends Component {
         <br />
         <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
         <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
-        <main>
-          <Route
-            path='/subjects/:subject_id/lesson/:id/questions'
-            render={props => <UpdateLesson {...props} />}
-          />
-        </main>
       </div>
     )
   }

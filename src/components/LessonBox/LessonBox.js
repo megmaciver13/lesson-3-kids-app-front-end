@@ -16,10 +16,7 @@ class LessonBox extends Component {
     return (
       <div className="lesson-box">
         <img className='lesson-icon' src={this.state.lesson.lessonImage} alt={this.state.lesson.name}/>
-        <Link to={{
-          pathname: `/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`,
-          state: { subject: this.props.subject }
-        }}>
+        <Link to={`/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`}>
           {this.state.lesson.name}
         </Link>
       </div>
