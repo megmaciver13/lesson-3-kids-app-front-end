@@ -1,32 +1,30 @@
 import React, { Component } from "react"
 import axios from "axios"
-import { Link, Redirect } from "react-router-dom"
 
 class UpdateLesson extends Component {
   constructor (props) {
     super(props)
-    console.log(this.props)
 
     this.state = {
-      lesson: this.props.lesson
+      lesson: this.props.lesson,
+      subject: this.props.subject
     }
     this.updateLessonText = this.updateLessonText.bind(this)
     this.updateLessonImage = this.updateLessonImage.bind(this)
   }
 
   handleSubmit (e) {
+    let updatedLesson = {
+      name: this.state.lesson.name,
+      lessonImage: this.state.lesson.lessonImage
+    }
+    console.log(updatedLesson)
     e.preventDefault()
-    console.log(this.state.lesson)
     axios
-      .patch(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`,
-        {
-          name: this.state.lesson.name,
-          lessonImage: this.state.lesson.lessonImage
-        }
-      )
+      .patch(`http://localhost:3001/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}/questions`, updatedLesson)
       .then(response => {
         console.log(response)
-        this.props.history.push(`/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+        this.props.history.push(`/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`)
       })
       .catch(err => console.log(err))
   }
@@ -48,6 +46,7 @@ class UpdateLesson extends Component {
   }
 
   render () {
+    console.log(this.state.lesson)
     return (
       <div>
         <form onSubmit={e => this.handleSubmit(e)}>

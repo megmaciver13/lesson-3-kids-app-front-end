@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {
-  Link
+  Link,
+  Route
 } from 'react-router-dom'
 
 import QuestionBox from '../QuestionBox/QuestionBox'
@@ -13,6 +14,7 @@ class Lesson extends Component {
     super(props)
 
     this.state = {
+      subject: this.props.location.state.subject,
       lesson: {
         name: '',
         lessonImage: '',
@@ -26,7 +28,6 @@ class Lesson extends Component {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson => {
-        console.log(lesson.data)
         this.setState({
           lesson: lesson.data
         })
@@ -63,7 +64,7 @@ class Lesson extends Component {
   }
 
   render () {
-    console.log(this.state.lesson)
+    console.log(this.state.subject)
     let questions = this.state.lesson.questions.map((question, index) => {
       return <QuestionBox info={question} key={index} />
     })
@@ -76,6 +77,7 @@ class Lesson extends Component {
         {this.state.updateClicked ? (
           <UpdateLesson
             lesson={this.state.lesson}
+            subject={this.state.subject}
           />
           ) : (
             <p />
@@ -87,6 +89,12 @@ class Lesson extends Component {
         <br />
         <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
         <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
+        <main>
+          <Route
+            path='/subjects/:subject_id/lesson/:id/questions'
+            render={props => <UpdateLesson {...props} />}
+          />
+        </main>
       </div>
     )
   }
