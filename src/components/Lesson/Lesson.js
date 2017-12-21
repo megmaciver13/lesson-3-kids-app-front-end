@@ -63,20 +63,20 @@ class Lesson extends Component {
   }
 
   render () {
-    let questions = this.state.lesson.questions.map((question, index) => {
-      return <QuestionBox info={question} key={index} />
-    })
-    return (
-      <div className="lesson-page">
-        <h1>Lesson: {this.state.lesson.name}</h1>
-        <div className="questions">
-          {questions}
-        </div>
-        {this.state.updateClicked ? (
-          <UpdateLesson
-            lesson={this.state.lesson}
-            subject={this.state.subject}
-          />
+    console.log(this.state.lesson)
+      let questions = this.state.lesson.questions.map((question, index) => {
+        return <QuestionBox info={question} key={index} />
+      })
+      return (
+        <div className="lesson-page">
+          <h1 className="lesson-name">Lesson: {this.state.lesson.name}</h1>
+            <div className="questions">
+              {questions}
+            </div>
+          {this.state.updateClicked ? (
+            <UpdateLesson
+              lesson = {this.state.lesson}
+            />
           ) : (
             <p />
           )}

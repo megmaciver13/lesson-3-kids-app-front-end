@@ -14,11 +14,9 @@ class LessonBox extends Component {
 
   render () {
     return (
-      <div className="lesson-box">
+      <div className="lesson-box-container">
         <img className='lesson-icon' src={this.state.lesson.lessonImage} alt={this.state.lesson.name}/>
-        <Link to={`/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`}>
-          {this.state.lesson.name}
-        </Link>
+        <Link className='lesson-icon' to={`/subjects/${this.state.subject._id}/lesson/${this.state.lesson._id}`}>{this.state.lesson.name}</Link>
       </div>
     )
   }
