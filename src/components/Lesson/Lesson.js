@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {
+  Link
+} from 'react-router-dom'
 
 import QuestionBox from '../QuestionBox/QuestionBox'
 import './Lesson.css'
@@ -23,6 +26,7 @@ class Lesson extends Component {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson => {
+        console.log(lesson.data)
         this.setState({
           lesson: lesson.data
         })
@@ -86,6 +90,7 @@ onDelete(e) {
 }
 
   render () {
+    console.log(this.state.lesson)
       let questions = this.state.lesson.questions.map((question, index) => {
         return <QuestionBox info={question} key={index} />
       })
@@ -102,6 +107,11 @@ onDelete(e) {
           ) : (
             <p />
           )}
+          <br />
+          <button>
+            <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
+          </button>
+          <br />
           <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
           <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
         </div>

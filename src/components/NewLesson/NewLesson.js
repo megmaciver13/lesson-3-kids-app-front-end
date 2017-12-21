@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import axios from "axios"
-import { Link, Redirect } from "react-router-dom"
+import React, { Component } from 'react'
+import axios from 'axios'
 
 class NewLesson extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       name: null,
       lessonImage: null
@@ -59,7 +59,7 @@ class NewLesson extends Component {
             placeholder="Icon URL"
             onChange={this.handleLessonImage}
           />
-          <input type="submit" value="submit" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
