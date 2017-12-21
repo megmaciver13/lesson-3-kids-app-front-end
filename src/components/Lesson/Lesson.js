@@ -34,89 +34,62 @@ class Lesson extends Component {
       .catch(err => console.log(err))
   }
 
-  updateLesson(e) {
+  onUpdate (e) {
+    e.preventDefault()
     this.setState({
-      lesson: {
-        ...this.state.lesson,
-        [e.target.name]: e.target.value
-      }
+      updateClicked: true
     })
   }
 
-  onUpdate(e) {
-    e.preventDefault()
-      this.setState({
-        updateClicked: true
-      })
-  }
-
-  handleName(e) {
+  handleName (e) {
     this.setState({
       name: e.target.value
     })
   }
 
-  handleLessonImage(e) {
+  handleLessonImage (e) {
     this.setState({
       lessonImage: e.target.value
     })
   }
 
-  handleSubmit(e) {
-  e.preventDefault()
-  console.log(this.state.lesson)
-  axios
-    .put(
-      `http://localhost:3001/`,
-      {
-        name: this.state.lesson.name,
-        lessonImage: this.state.lesson.lessonImage
-      }
-    )
-    .then(response => {
-      console.log(response)
-      this.props.history.push(`/subjects/${this.props.match.params.subject_id}`)
-    })
-    .catch(err => console.log(err))
-}
-
-onDelete(e) {
-  axios
-    .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
-    .then(response => {
-      this.props.history.push('/subjects')
-    })
-    .catch(err => console.log(err))
-}
+  onDelete (e) {
+    axios
+      .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+      .then(response => {
+        this.props.history.push('/subjects')
+      })
+      .catch(err => console.log(err))
+  }
 
   render () {
     console.log(this.state.lesson)
-      let questions = this.state.lesson.questions.map((question, index) => {
-        return <QuestionBox info={question} key={index} />
-      })
-      return (
-        <div className="lesson-page">
-          <h1>Lesson: {this.state.lesson.name}</h1>
-            <div className="questions">
-              {questions}
-            </div>
-          {this.state.updateClicked ? (
-            <UpdateLesson
-              lesson = {this.state.lesson}
-            />
+    let questions = this.state.lesson.questions.map((question, index) => {
+      return <QuestionBox info={question} key={index} />
+    })
+    return (
+      <div className="lesson-page">
+        <h1>Lesson: {this.state.lesson.name}</h1>
+        <div className="questions">
+          {questions}
+        </div>
+        {this.state.updateClicked ? (
+          <UpdateLesson
+            lesson={this.state.lesson}
+          />
           ) : (
             <p />
           )}
-          <br />
-          <button>
-            <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
-          </button>
-          <br />
-          <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
-          <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
-        </div>
-      )
-    }
+        <br />
+        <button>
+          <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
+        </button>
+        <br />
+        <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
+        <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
+      </div>
+    )
+  }
 }
 
 export default Lesson
