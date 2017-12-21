@@ -13,6 +13,7 @@ import Lessons from '../Lessons/Lessons'
 import Nav from '../Nav/Nav'
 import About from '../About/About'
 import NewLesson from '../NewLesson/NewLesson'
+import NewQuestion from '../NewQuestion/NewQuestion'
 
 
 class App extends Component {
@@ -35,16 +36,16 @@ class App extends Component {
               render={props => <Lessons {...props} />}
             />
             <Route
-              path='/subjects/:subject_id/lesson/:_id'
+              exact path='/subjects/:subject_id/lesson/:_id'
               render={props => <Lesson {...props} />}
             />
             <Route
-              path='/subjects/:subject_id/lesson'
+              exact path='/subjects/:subject_id/lesson'
               render={props => <NewLesson {...props} />}
             />
             <Route
               path='/subjects/:subject_id/lesson/:id/question'
-              render={props => <NewLesson {...props} />}
+              render={props => <NewQuestion {...props} />}
             />
             <Route
               path='/*'
