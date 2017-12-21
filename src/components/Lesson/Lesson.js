@@ -91,7 +91,7 @@ onDelete(e) {
       })
       return (
         <div className="lesson-page">
-          <h1>Lesson: {this.state.lesson.name}</h1>
+          <h1 className="lesson-name">Lesson: {this.state.lesson.name}</h1>
             <div className="questions">
               {questions}
             </div>
