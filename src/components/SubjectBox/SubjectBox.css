@@ -4,3 +4,13 @@
   justify-content: space-around;
   /* flex-wrap: wrap; */
 }
+
+.subject-name {
+    font-family: 'Short Stack', cursive;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}

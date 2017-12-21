@@ -40,7 +40,7 @@ class QuestionBox extends Component {
     console.log(this.state.question)
     return(
       <div>
-        <h2>{this.state.question.question}</h2>
+        <h2 className="question-text">{this.state.question.question}</h2>
         <div className="question-box-container">
           <div className="question-box">
               <div className="question-box-item" onClick={e => this.onClickImage(e)}>

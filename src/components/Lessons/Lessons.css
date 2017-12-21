@@ -1,6 +1,5 @@
-.lessons-page{
-  justify-content:center;
+.lessons {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-
 }

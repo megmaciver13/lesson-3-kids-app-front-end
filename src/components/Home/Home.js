@@ -30,7 +30,7 @@ class Home extends Component {
     })
     return (
       <div className="home">
-        <h1>Choose a subject below to get learning!</h1>
+        <h1 className="home-header">Choose a subject below to get learning!</h1>
         <div className="subjects">
           {subjectBoxes}
         </div>
