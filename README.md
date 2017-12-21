@@ -1,4 +1,4 @@
-# learn n' grow
+# LearnNGrow
 
 ## Description:
 * LearnNGrow is a visual learning app in the style of short, visual quizzes intended to help young children learn in an engaging environment.
