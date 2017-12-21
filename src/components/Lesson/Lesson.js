@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {
-  Link
+  Link,
+  Route
 } from 'react-router-dom'
 
 import QuestionBox from '../QuestionBox/QuestionBox'
@@ -26,7 +27,6 @@ class Lesson extends Component {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson => {
-        console.log(lesson.data)
         this.setState({
           lesson: lesson.data
         })
@@ -34,60 +34,33 @@ class Lesson extends Component {
       .catch(err => console.log(err))
   }
 
-  updateLesson(e) {
+  onUpdate (e) {
+    e.preventDefault()
     this.setState({
-      lesson: {
-        ...this.state.lesson,
-        [e.target.name]: e.target.value
-      }
+      updateClicked: true
     })
   }
 
-  onUpdate(e) {
-    e.preventDefault()
-      this.setState({
-        updateClicked: true
-      })
-  }
-
-  handleName(e) {
+  handleName (e) {
     this.setState({
       name: e.target.value
     })
   }
 
-  handleLessonImage(e) {
+  handleLessonImage (e) {
     this.setState({
       lessonImage: e.target.value
     })
   }
 
-  handleSubmit(e) {
-  e.preventDefault()
-  console.log(this.state.lesson)
-  axios
-    .put(
-      `http://localhost:3001/`,
-      {
-        name: this.state.lesson.name,
-        lessonImage: this.state.lesson.lessonImage
-      }
-    )
-    .then(response => {
-      console.log(response)
-      this.props.history.push(`/subjects/${this.props.match.params.subject_id}`)
-    })
-    .catch(err => console.log(err))
-}
-
-onDelete(e) {
-  axios
-    .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
-    .then(response => {
-      this.props.history.push('/subjects')
-    })
-    .catch(err => console.log(err))
-}
+  onDelete (e) {
+    axios
+      .delete(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+      .then(response => {
+        this.props.history.push('/subjects')
+      })
+      .catch(err => console.log(err))
+  }
 
   render () {
     console.log(this.state.lesson)
@@ -107,16 +80,16 @@ onDelete(e) {
           ) : (
             <p />
           )}
-          <br />
-          <button>
-            <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
-          </button>
-          <br />
-          <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
-          <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
-        </div>
-      )
-    }
+        <br />
+        <button>
+          <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
+        </button>
+        <br />
+        <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
+        <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
+      </div>
+    )
+  }
 }
 
 export default Lesson

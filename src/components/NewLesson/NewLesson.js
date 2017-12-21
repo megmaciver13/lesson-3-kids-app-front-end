@@ -32,7 +32,6 @@ class NewLesson extends Component {
       name: this.state.name,
       lessonImage: this.state.lessonImage
     }
-
     axios
       .post(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson`, newLesson)
       .then((response) => {
@@ -42,7 +41,7 @@ class NewLesson extends Component {
       .catch(err => console.log(err))
   }
 
-  render() {
+  render () {
     return (
       <div>
         <h1>Create a New Lesson!</h1>
