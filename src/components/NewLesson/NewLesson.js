@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class NewLesson extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -13,19 +13,19 @@ class NewLesson extends Component {
     this.handleLessonImage = this.handleLessonImage.bind(this)
   }
 
-  handleName(e) {
+  handleName (e) {
     this.setState({
       name: e.target.value
     })
   }
 
-  handleLessonImage(e) {
+  handleLessonImage (e) {
     this.setState({
       lessonImage: e.target.value
     })
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
 
     let newLesson = {

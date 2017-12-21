@@ -11,24 +11,40 @@ class NewQuestion extends Component {
         image: '',
         text: '',
         isCorrect: false
-      }],
-      numAnswers: 4
+      }]
     }
+    this.handleQuestionTitle = this.handleQuestionTitle.bind(this)
+    this.handleAnswers = this.handleAnswers.bind(this)
   }
 
   handleQuestionTitle(e) {
-    e.preventDefault()
     this.setState({
       question: e.target.value
     })
   }
 
-  addAnswer(e) {
-    e.preventDefault()
+  handleAnswers(e) {
     this.setState({
-      numAnswers: this.state.numAnswers ++
+      answers: e.target.value
     })
   }
+
+  handleSubmit(e) {
+    e.preventDefault()
+
+    let newQuestion = {
+      question: this.state.question,
+      answers: this.state.answers
+    }
+  }
+
+  axios
+    .post(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}/questions`, newQuestion)
+    .then(response => {
+      console.log(response)
+      this.props.history.push(`/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
+    })
+    .catch(err => console.log(err))
 
   render () {
     return (
@@ -38,7 +54,7 @@ class NewQuestion extends Component {
           <input type="text" name="question" placeholder="Type Question Here" onChange={this.handleQuestionTitle} />
           <br />
           <br />
-          <div className="answer-choices">
+          <div className="answer-choices" onChange={this.handleAnswers}>
             <input type="text" name="answers[0][image]" placeholder="Answer Choice 1: Image Url" />
             <input type="text" name="answers[0][text]" placeholder="Answer Choice 1: Text" />
             <input type="checkbox" name="answers[0][isCorrect]" value="true"/> <span>This is the correct answer.</span><br />
@@ -60,67 +76,3 @@ class NewQuestion extends Component {
 }
 
 export default NewQuestion
-
-// earlier attempt:
-//
-// <form onSubmit={e => this.handleSubmit(e)}>
-//   <input
-//     type="text"
-//     name="question"
-//     placeholder="Type Question Here"
-//     onChange={this.handleQuestionTitle}
-//   />
-//   {Array(this.state.numAnswers).map((i, index) => {
-//     <input type="text" name="image" placeholder="Image Url" onChange={this.updateAnswersArray} />
-//     <input type="text" name=answers[index][text] placeholder="Answer Text" onChange={this.updateAnswersArray} />
-//     <input type="" name="isCorrect"/>
-//
-//   })}
-//   <input type="submit" value="Submit Question" />
-//   <input type="submit" value="Add Answer" onSubmit={this.addAnswer}/>
-// </form>
-//
-// // Zakk's work:
-//
-//   render() {
-//     return (
-//       div
-//         form
-//           input name="question"
-//           {Array(this.state.numAnswers).map((i, index) => {
-//             input image onChange(update answers array)
-//             input text name=answers[index][text]
-//             input isCorrect
-//           })}
-//           button submit
-//         button Add Answer onClick, increment numAnswers
-//     )
-//   }
-// }
-//
-// // on our server:
-// body: {
-//   question: "What is the first letter of the alphabet?",
-//   answers: {
-//     "0": {
-//       image: "http://www.fillmurray.com/300/300",
-//       text: "what ever",
-//       isCorrect: "false"
-//     },
-//     "1": {
-//       image: "http://www.fillmurray.com/300/300",
-//       text: "what ever",
-//       isCorrect: "false"
-//     },
-//     "2": {
-//       image: "http://www.fillmurray.com/300/300",
-//       text: "what ever",
-//       isCorrect: "false"
-//     },
-//     "3": {
-//       image: "http://www.fillmurray.com/300/300",
-//       text: "what ever",
-//       isCorrect: "false"
-//     },
-//   }
-// }
