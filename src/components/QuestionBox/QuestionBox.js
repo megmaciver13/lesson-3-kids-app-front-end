@@ -8,27 +8,18 @@ class QuestionBox extends Component {
     this.state = {
       question: this.props.info,
       hasClickedImage: false,
-      answerChoice: {},
-      answeredCorrectly: false
+      answerChoice: ''
     }
   }
 
-  showCorrectMessage () {
-    console.log('correct')
-  }
-
-  showWrongMessage () {
-    console.log('wrong')
-  }
-
   checkIfCorrect () {
-    if (this.state.answerChoice.isCorrect) {
-      this.setState({
-        answeredCorrectly: true
-      })
-      this.showCorrectMessage()
+    let correctAnswer = this.props.info.answers.findIndex(answer =>{
+        return answer.isCorrect === true
+    })
+    if (correctAnswer === parseInt(this.state.answerChoice)) {
+      console.log('correct!')
     } else {
-      this.showWrongMessage()
+      console.log('wrong!')
     }
   }
 
@@ -37,10 +28,10 @@ class QuestionBox extends Component {
     console.log(e.target)
     this.setState({
       hasClickedImage: true,
-      answerChoice: e.target
-    })
-
-    this.checkIfCorrect()
+      answerChoice: e.target.dataset.answer
+    }, this.checkIfCorrect
+    )
+    console.log(this.props.info.answers)
   }
 
 
@@ -53,13 +44,13 @@ class QuestionBox extends Component {
         <div className="question-box-container">
           <div className="question-box">
               <div className="question-box-item" onClick={e => this.onClickImage(e)}>
-                <img src={(this.state.question.answers)[0]['image']} alt={(this.state.question.answers)[0]['text']} />
+                <img src={(this.state.question.answers)[0]['image']} data-answer='0' alt={(this.state.question.answers)[0]['text']} />
               </div>
               <div className="question-box-item" onClick={e => this.onClickImage(e)}>
-                <img src={(this.state.question.answers)[1]['image']} alt={(this.state.question.answers)[1]['text']} />
+                <img src={(this.state.question.answers)[1]['image']} data-answer='1' alt={(this.state.question.answers)[1]['text']} />
               </div>
               <div className="question-box-item" onClick={e => this.onClickImage(e)}>
-                <img src={(this.state.question.answers)[2]['image']} alt={(this.state.question.answers)[2]['text']} />
+                <img src={(this.state.question.answers)[2]['image']} data-answer='2' alt={(this.state.question.answers)[2]['text']} />
               </div>
           </div>
         </div>

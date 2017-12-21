@@ -23,6 +23,7 @@ class Lesson extends Component {
     axios
       .get(`http://localhost:3001/subjects/${this.props.match.params.subject_id}/lesson/${this.props.match.params._id}`)
       .then(lesson => {
+        console.log(lesson.data)
         this.setState({
           lesson: lesson.data
         })
