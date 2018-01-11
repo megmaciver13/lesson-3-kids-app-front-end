@@ -14,30 +14,31 @@ class QuestionBox extends Component {
 
   checkIfCorrect () {
     let correctAnswer = this.props.info.answers.findIndex(answer =>{
-        return answer.isCorrect === true
+      return answer.isCorrect === true
     })
     if (correctAnswer === parseInt(this.state.answerChoice)) {
       console.log('correct!')
     } else {
       console.log('wrong!')
-    }
+    } // Console logs are working accurately.  Try to think of an easy way to get a visual confirmation on the page.  Maybe just changing the boarder from red or green?
   }
 
   onClickImage (e) {
     e.preventDefault()
-    console.log(e.target)
+    console.log(e.target) // Get rid of this
     this.setState({
       hasClickedImage: true,
       answerChoice: e.target.dataset.answer
     }, this.checkIfCorrect
     )
-    console.log(this.props.info.answers)
+    console.log(this.props.info.answers) // Get rid of this too
   }
 
 
 
   render () {
-    console.log(this.state.question)
+    console.log(this.state.question) // Buh-bye
+    // Here you could save `this.state.question.answers` in a local variable (like `answers`) so you don't have to type that out every time.
     return(
       <div>
         <h2 className="question-text">{this.state.question.question}</h2>

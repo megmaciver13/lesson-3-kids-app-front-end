@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom'
 
 import QuestionBox from '../QuestionBox/QuestionBox'
-import './Lesson.css'
 import UpdateLesson from '../UpdateLesson/UpdateLesson'
+import './Lesson.css'
 
 class Lesson extends Component {
   constructor (props) {
@@ -63,7 +63,7 @@ class Lesson extends Component {
   }
 
   render () {
-    console.log(this.state.lesson)
+    console.log(this.state.lesson) // Remove from production
       let questions = this.state.lesson.questions.map((question, index) => {
         return <QuestionBox info={question} key={index} />
       })
@@ -73,21 +73,19 @@ class Lesson extends Component {
             <div className="questions">
               {questions}
             </div>
-          {this.state.updateClicked ? (
-            <UpdateLesson
-              lesson = {this.state.lesson}
-            />
-          ) : (
+          {this.state.updateClicked ?
+            <UpdateLesson lesson = {this.state.lesson} /> :
             <p />
-          )}
-        <br />
-        <button>
-          <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
-        </button>
-        <br />
-        <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
-        <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
-      </div>
+          } {/* You actually don't need the parentheses here */}
+          <br />
+          <button>
+            <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
+          </button>
+          <br />
+          <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
+          <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
+          {/* Maybe you could put the buttons in a div to make styling easier */}
+        </div>
     )
   }
 }
