@@ -40,7 +40,7 @@ class App extends Component {
               render={props => <Lesson {...props} />}
             />
             <Route
-              exact path='/subjects/:subject_id/lesson'
+              exact path='/subjects/:subject_id/lesson' // This path could be called 'new' or something for better clarity
               render={props => <NewLesson {...props} />}
             />
             <Route

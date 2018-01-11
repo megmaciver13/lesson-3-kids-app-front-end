@@ -23,7 +23,7 @@ class Home extends Component {
       })
       .catch(err => console.log(err))
   }
-
+// Good job using componentDidMount to set up your state.
   render () {
     let subjectBoxes = this.state.subjects.map((subject, i) => {
       return <SubjectBox info={subject} key={i} />

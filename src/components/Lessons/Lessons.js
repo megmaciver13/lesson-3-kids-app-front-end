@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom' // Usually when importing one thing, you don't break up the lines
 
 import './Lessons.css'
 import LessonBox from '../LessonBox/LessonBox'
@@ -20,7 +18,7 @@ class Lessons extends Component {
   componentDidMount () {
     axios.get(`https://kids-app-back-end.herokuapp.com/subjects/${this.props.match.params.subject_id}`)
       .then(subject => {
-        console.log(subject)
+        console.log(subject) // No console.logs in production!
         this.setState({
           subject: subject.data,
           lessons: subject.data.lessons
