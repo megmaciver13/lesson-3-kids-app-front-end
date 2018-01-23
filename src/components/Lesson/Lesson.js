@@ -81,9 +81,9 @@ class Lesson extends Component {
             <p />
           )}
         <br />
-        <button>
+        {/*<button>
           <Link to={`/subjects/${this.props.match.params.subject_id}/lesson/${this.state.lesson._id}/question`}>Create a New Question</Link>
-        </button>
+        </button>*/}
         <br />
         <button onClick={e => this.onUpdate(e)}> Edit This Lesson </button>
         <button onClick={e => this.onDelete(e)}> Delete This Lesson </button>
