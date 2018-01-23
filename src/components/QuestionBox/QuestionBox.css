@@ -20,3 +20,26 @@
 .question-text {
   font-family: 'Delius Unicase', cursive;
 }
+
+.correct-incorrect {
+  display: flex;
+  justify-content: center;
+}
+
+.correct {
+  font-family: 'Short Stack', cursive;
+  font-size: 18px;
+  background-color: rgb(16,212,82);
+  margin: 10px;
+  width: 100px;
+  padding: 5px;
+}
+
+.incorrect {
+  font-family: 'Short Stack', cursive;
+  font-size: 18px;
+  background-color: rgb(247,82,49);
+  margin: 10px;
+  width: 200px;
+  padding: 5px;
+}

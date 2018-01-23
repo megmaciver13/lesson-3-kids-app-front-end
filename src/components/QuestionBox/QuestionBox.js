@@ -8,7 +8,8 @@ class QuestionBox extends Component {
     this.state = {
       question: this.props.info,
       hasClickedImage: false,
-      answerChoice: ''
+      answerChoice: '',
+      answeredCorrectly: false
     }
   }
 
@@ -17,6 +18,9 @@ class QuestionBox extends Component {
         return answer.isCorrect === true
     })
     if (correctAnswer === parseInt(this.state.answerChoice)) {
+      this.setState({
+        answeredCorrectly: true
+      })
       console.log('correct!')
     } else {
       console.log('wrong!')
@@ -53,6 +57,14 @@ class QuestionBox extends Component {
                 <img src={(this.state.question.answers)[2]['image']} data-answer='2' alt={(this.state.question.answers)[2]['text']} />
               </div>
           </div>
+        </div>
+        <div className="correct-incorrect">
+          {this.state.hasClickedImage ?
+            (this.state.answeredCorrectly ? <p className="correct">Correct!</p> :
+            <p className="incorrect">Try again!</p>
+            ) :
+            <p></p>
+          }
         </div>
       </div>
     )
